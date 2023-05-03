@@ -6,4 +6,7 @@ public class Energy extends Physics {
     double potentialEnergy(int mass, float gravity, int height){
         return(mass * gravity * height);
     }
+    double velocity(float distance, float time){
+        return( distance/ time );
+        }
     }
