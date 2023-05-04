@@ -10,3 +10,6 @@ public class Energy extends Physics {
         return divide(distance, time);
         }
     }
+    double momentum(float mass, float velocity){
+        return multiply(mass, velocity)
+        }
