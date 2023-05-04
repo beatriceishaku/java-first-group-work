@@ -5,7 +5,7 @@ public class Main {
         System.out.println("1 for kinetic energy");
         System.out.println("2 for potential energy");
         System.out.println("3 for velocity");
-        System.out.println("4 for ");
+        System.out.println("4 for momentum");
         System.out.println("5 for ");
         Scanner input = new Scanner(System.in);
         int insert = input.nextInt();
@@ -32,6 +32,14 @@ public class Main {
                 System.out.println("Enter the time");
                 time = input.nextFloat();
                 return velocity;
+                
+            case 4:
+                
+                System.out.println("Enter the mass");
+                mass = input.nextFloat();
+                System.out.println("Enter the velocity");
+                velocity = input.nextFloat();   
+                return momentum;
                                    
                 
         
