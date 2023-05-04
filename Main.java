@@ -6,7 +6,7 @@ public class Main {
         System.out.println("2 for potential energy");
         System.out.println("3 for velocity");
         System.out.println("4 for momentum");
-        System.out.println("5 for ");
+        System.out.println("5 for pressure");
         Scanner input = new Scanner(System.in);
         int insert = input.nextInt();
         switch (insert){
@@ -40,6 +40,14 @@ public class Main {
                 System.out.println("Enter the velocity");
                 velocity = input.nextFloat();   
                 return momentum;
+                
+            case 5:
+                
+                System.out.println("Enter the force");
+                force = input.nextFloat();
+                System.out.println("Enter the area");
+                area = input.nextFloat();   
+                return pressure;
                                    
                 
         
