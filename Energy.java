@@ -9,6 +9,8 @@ public class Energy extends Physics {
     double velocity(float distance, float time){
         return divide(distance, time);
         }
+    double pressure(float force, float area){
+        return divide(force,area);
     }
     double momentum(float mass, float velocity){
         return multiply(mass, velocity)
