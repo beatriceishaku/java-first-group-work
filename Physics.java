@@ -1,3 +1,9 @@
 public class Physics {
-    public float gravity = 9.81F;
+    public float getGravity(){
+     return Gravity;
+        }
+    public void setGravity(){
+        this.Gravity;
+        }
+        private float Gravity = 9.8F;
 }
