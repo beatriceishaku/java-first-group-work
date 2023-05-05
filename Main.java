@@ -35,6 +35,7 @@ public class Main {
                 System.out.println("Enter the time");
                 time = input.nextFloat();
                 return velocity;
+                break;
                 
             case 4:
                 
