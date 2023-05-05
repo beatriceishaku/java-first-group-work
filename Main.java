@@ -17,7 +17,7 @@ public class Main {
                 System.out.println("Enter the velocity");
                 velocity = input.nextFloat();
                 return kineticEnergy;
-                break;
+             
                 
             case 2:
                 
@@ -26,7 +26,7 @@ public class Main {
                 System.out.println("Enter the Height");
                 height = input.nextFloat();   
                 return potentialEnergy;
-                break;
+                
                 
             case 3:
                 
@@ -35,7 +35,7 @@ public class Main {
                 System.out.println("Enter the time");
                 time = input.nextFloat();
                 return velocity;
-                break;
+                
                 
             case 4:
                 
@@ -44,7 +44,7 @@ public class Main {
                 System.out.println("Enter the velocity");
                 velocity = input.nextFloat();   
                 return momentum;
-                break;
+                
                 
             case 5:
                 
@@ -53,10 +53,7 @@ public class Main {
                 System.out.println("Enter the area");
                 area = input.nextFloat();   
                 return pressure;
-                break;
-                                   
-                
-        
-
+               
+                  
     }
 }
