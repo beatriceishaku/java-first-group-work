@@ -1,9 +1,9 @@
 package UI;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Constructor called");
-        GeometryUI geometryUI = new GeometryUI();
-        geometryUI.mainUI();
+
+        PhysicsUI physicsUI = new PhysicsUI();
+        physicsUI.mainUI();
 
     }
 }]git push origin master
