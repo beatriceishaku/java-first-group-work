@@ -9,6 +9,8 @@ public class PhysicsUI {
         JFrame physicsFrame = new JFrame("PhysicsUI");
         JButton kineticEnergyButton = new JButton("kinetic energy");
         JButton momentumButton = new JButton("momentum");
+        JButton Velocity = new JButton("velocity");
+        JButton PotentialEnergy = new JButton("Potential Energy");
         JOptionPane physicsOptionPane = new JOptionPane("physics");
                 public void mainUI() {
                         JPanel panel = new JPanel(new GridLayout(3, 1));
@@ -27,7 +29,10 @@ public class PhysicsUI {
 
                                         // add some components to the new frame
                                         JPanel newPanel = new JPanel();
-                                        JLabel label = new JLabel("This is the kinetic energy panel.");
+                                        JLabel label = new JLabel("Enter Mass")
+                                        JTextField = new JTextField();
+                                        JLabel label = new JLabel("Enter Velocity");
+                                        JTextField = new JTextField();
                                         newPanel.add(label);
                                         newFrame.add(newPanel);
 
