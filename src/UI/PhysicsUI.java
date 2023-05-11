@@ -16,6 +16,11 @@ public class PhysicsUI {
         JTextField enterMass = new JTextField("Enter Mass");
         JTextField enterHeight = new JTextField("Enter Height");
         JButton calculatePotentialEnergy = new JButton("calculate");
+        JFrame momentumFrame = new JFrame("Momentum");
+        JLabel enterMass = new JLabel("Enter Mass")
+        JLabel enterVelocity =new JLabel("Enter velocity")
+        JTextField enterMass = new JTextField()
+        JButton calculateMomentum = new JButton("calculate")
         JFrame velocityFrame = new JFrame("velocity");
         JTextField enterDistance = new JTextField("Enter Distance");
         JTextField enterTime = new JTextField("Enter Time");
@@ -56,32 +61,36 @@ public class PhysicsUI {
 
                         // add ActionListener to momentumButton
                         momentumButton.addActionListener(e -> {
-                                // code to be executed when the button is clicked
-                                System.out.println("Momentum button clicked!");
+                            JFrame newFrame = JFrame("Momentum"); JPanel newPanel = new JPanel();
+                            JLabel mass = new JLabel("Enter Mass");
+                            JLabel velocity = new JLabel("Enter Velocity");
+                            newPanel.add(mass);
+                            newPanel.add(velocity);
+                            newFrame.add(newPanel);
+
+                            // set the size and visibility of the new frame
+                            newFrame.setSize(300, 200);
+                            newFrame.setVisible(true);
+
+
                         });
                     potentialEnergyButton.addActionListener(e -> {
-                        System.out.println("Potential energy");
-                        JOptionPane.showMessageDialog(null, "Potential energy");
                         drawPotentialEnergyUI();
                     });
                         velocityButton.addActionListener(e -> {
-                            System.out.println("velocity");
-                            JOptionPane.showMessageDialog(null, " velocity");
                             drawVelocityUI();
         });
        pressureButton.addActionListener(e -> {
-            System.out.println("pressure");
-            JOptionPane.showMessageDialog(null, " pressure");
             drawPressureUI();
         });
 
         // FUNCTION CALL !!!
         velocityButton.addActionListener(e -> {
             try{
-                float height = Float.parseFloat(velocityButton.getText());
-                float base = Float.parseFloat(velocityButton.getText());
-                double area = 0.5 * height * base;
-                JOptionPane.showMessageDialog(null, "velocity is " + area);
+                float distance = Float.parseFloat(velocityButton.getText());
+                float time = Float.parseFloat(velocityButton.getText());
+                double velocity = distance / time;
+                JOptionPane.showMessageDialog(null, "velocity is " + velocity);
             }
             catch(NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Please input a valid number");
@@ -90,10 +99,10 @@ public class PhysicsUI {
 
         pressureButton.addActionListener(e -> {
             try{
-                float length = Float.parseFloat(pressureButton.getText());
-                float breadth = Float.parseFloat(pressureButton.getText());
-                float area = length * breadth;
-                JOptionPane.showMessageDialog(null, "pressure is " + area);
+                float force = Float.parseFloat(pressureButton.getText());
+                float area = Float.parseFloat(pressureButton.getText());
+                float pressure = force / area ;
+                JOptionPane.showMessageDialog(null, "pressure is " + pressure);
             }
             catch(NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Please input a valid number");
@@ -102,14 +111,21 @@ public class PhysicsUI {
 
         potentialEnergyButton.addActionListener(e -> {
             try{
-                float length = Float.parseFloat(potentialEnergyButton.getText());
-                float area = length * length;
-                JOptionPane.showMessageDialog(null, "potential Energy is " + area);
+                float mass = Float.parseFloat(potentialEnergyButton.getText());
+                float height = Float.parseFloat(potentialEnergyButton.getText());
+
+                float potentialEnergy = mass * 10 * height;
+                JOptionPane.showMessageDialog(null, "potential Energy is " + potentialEnergy);
             }
             catch(NumberFormatException nfe){
                 JOptionPane.showMessageDialog(null, "Please input a valid number");
             }
         });
+    }
+
+    public void drawMomentumUI(){
+                    momentumFrame = new JFrame("Momentum");
+                    mo
     }
 
         public void drawPotentialEnergyUI(){
