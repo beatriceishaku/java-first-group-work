@@ -11,16 +11,21 @@ public class PhysicsUI {
         JButton potentialEnergyButton = new JButton("potential Energy");
         JButton pressureButton = new JButton("pressure");
         JButton velocityButton = new JButton("velocity");
-        JOptionPane physicsOptionPane = new JOptionPane("physics");
-        JFrame potentialEnergyFrame = new JFrame("potentialEnergy");
-        JTextField enterMass = new JTextField("Enter Mass");
-        JTextField enterHeight = new JTextField("Enter Height");
+        
+        JFrame kineticEnergyFrame = new JFrame("Kinetic Energy");
+        JTextField enterMassKE = new JTextField("Enter Mass");
+        JTextField enterVelocityKE = new JTextField("Enter Height");
+        JButton calculateKineticEnergy = new JButton("calculate");
+        JFrame potentialEnergyFrame = new JFrame("potential Energy");
+        JTextField enterMassPE = new JTextField("Enter Mass");
+        JTextField enterHeightPE = new JTextField("Enter Height");
         JButton calculatePotentialEnergy = new JButton("calculate");
         JFrame momentumFrame = new JFrame("Momentum");
-        JLabel enterMass = new JLabel("Enter Mass")
-        JLabel enterVelocity =new JLabel("Enter velocity")
-        JTextField enterMass = new JTextField()
-        JButton calculateMomentum = new JButton("calculate")
+        JTextField enterMassM = new JTextField("Enter Mass");
+        JTextField enterVelocityM = new JTextField("Enter velocity");
+
+      
+        JButton calculateMomentum = new JButton("calculate");
         JFrame velocityFrame = new JFrame("velocity");
         JTextField enterDistance = new JTextField("Enter Distance");
         JTextField enterTime = new JTextField("Enter Time");
@@ -30,65 +35,106 @@ public class PhysicsUI {
         JTextField enterArea = new JTextField("Enter Area");
         JButton calculatePressure = new JButton("calculate");
                 public void mainUI() {
-                        JPanel panel = new JPanel(new GridLayout(3, 1));
+                        JPanel panel = new JPanel(new GridLayout(5, 1));
                         panel.add(kineticEnergyButton);
                         panel.add(potentialEnergyButton);
                         panel.add(momentumButton);
                         panel.add(pressureButton);
                         panel.add(velocityButton);
-                        panel.add(physicsOptionPane);
+                      
                         physicsFrame.add(panel);
                         physicsFrame.pack();
                         physicsFrame.setVisible(true);
                         physicsFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
                         kineticEnergyButton.addActionListener(e -> {
-                                // create a new JFrame object
-                                JFrame newFrame = new JFrame("Kinetic Energy");
-
-                                // add some components to the new frame
-                                JPanel newPanel = new JPanel();
-                                JLabel mass = new JLabel("Enter Mass");
-                                JLabel velocity = new JLabel("Enter Velocity");
-                                newPanel.add(mass);
-                                newPanel.add(velocity);
-                                newFrame.add(newPanel);
+                                kineticEnergyFrame = new JFrame("Kinetic Energy");
+                                kineticEnergyFrame.add(enterMassKE);
+                                kineticEnergyFrame.add(enterVelocityKE);
+                                kineticEnergyFrame.add(calculateKineticEnergy);
 
                                 // set the size and visibility of the new frame
-                                newFrame.setSize(300, 200);
-                                newFrame.setVisible(true);
+                                kineticEnergyFrame.setLayout(new FlowLayout(FlowLayout.LEFT));
+                                kineticEnergyFrame.setSize(300, 200);
+                                kineticEnergyFrame.setVisible(true);
                         });
 
                         // add ActionListener to momentumButton
                         momentumButton.addActionListener(e -> {
-                            JFrame newFrame = JFrame("Momentum"); JPanel newPanel = new JPanel();
-                            JLabel mass = new JLabel("Enter Mass");
-                            JLabel velocity = new JLabel("Enter Velocity");
-                            newPanel.add(mass);
-                            newPanel.add(velocity);
-                            newFrame.add(newPanel);
-
+                                momentumFrame = new JFrame("Momentum");
+                                momentumFrame.add(enterMassM);
+                                momentumFrame.add(enterVelocityM);
+                                momentumFrame.add(calculateMomentum);
+                           
                             // set the size and visibility of the new frame
-                            newFrame.setSize(300, 200);
-                            newFrame.setVisible(true);
+                                momentumFrame.setLayout(new FlowLayout(FlowLayout.LEFT));
+                                momentumFrame.setSize(300, 200);
+                                momentumFrame.setVisible(true);
 
 
                         });
-                    potentialEnergyButton.addActionListener(e -> {
-                        drawPotentialEnergyUI();
-                    });
+                        potentialEnergyButton.addActionListener(e -> {
+                                potentialEnergyFrame = new JFrame("Potential Energy");
+                                potentialEnergyFrame.add(enterMassPE);
+                                potentialEnergyFrame.add(enterHeightPE);
+                                potentialEnergyFrame.add(calculatePotentialEnergy);
+                                potentialEnergyFrame.setLayout(new FlowLayout(FlowLayout.LEFT));
+                                potentialEnergyFrame.setSize(300, 200);
+                                potentialEnergyFrame.setVisible(true);
+                        });
                         velocityButton.addActionListener(e -> {
-                            drawVelocityUI();
-        });
-       pressureButton.addActionListener(e -> {
-            drawPressureUI();
+                                velocityFrame = new JFrame("velocity");
+                                velocityFrame.add(enterDistance);
+                                velocityFrame.add(enterTime);
+                                velocityFrame.add(calculateVelocity);
+                                velocityFrame.setLayout(new FlowLayout(FlowLayout.LEFT));
+                                velocityFrame.setSize(300,200);
+                                velocityFrame.setVisible(true);
+                       });
+                        pressureButton.addActionListener(e -> {
+                                pressureFrame = new JFrame("pressure");
+                                pressureFrame.add(enterForce);
+                                pressureFrame.add(enterArea);
+                                pressureFrame.add(calculatePressure);
+                                pressureFrame.setLayout(new FlowLayout(FlowLayout.LEFT));
+                                pressureFrame.setSize(300,200);
+                                pressureFrame.setVisible(true);
+         
         });
 
         // FUNCTION CALL !!!
+                        
+        kineticEnergyButton.addActionListener(e -> {
+            try{
+                float massKE = Float.parseFloat(enterMassKE.getText());
+                float velocityKE = Float.parseFloat(enterVelocityKE.getText());
+
+                float kineticEnergy = 0.5 * massKE * velocityKE * velocityKE;
+                JOptionPane.showMessageDialog(null, "kinetic Energy is " + kineticEnergy);
+            }
+            catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Please input a valid number");
+            }
+        });
+                        
+        momentumButton.addActionListener(e -> {
+            try{
+                float massM = Float.parseFloat(enterMassM.getText());
+                float velocityM = Float.parseFloat(enterVelocityM.getText());
+
+                float momentum = massM * velocityM;
+                JOptionPane.showMessageDialog(null, "Momentum is" + momentum);
+            }
+            catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Please input a valid number");
+            }
+        });
+                        
         velocityButton.addActionListener(e -> {
             try{
-                float distance = Float.parseFloat(velocityButton.getText());
-                float time = Float.parseFloat(velocityButton.getText());
+                float distance = Float.parseFloat(enterDistance.getText());
+                float time = Float.parseFloat(enterTime.getText());
+
                 double velocity = distance / time;
                 JOptionPane.showMessageDialog(null, "velocity is " + velocity);
             }
@@ -99,8 +145,8 @@ public class PhysicsUI {
 
         pressureButton.addActionListener(e -> {
             try{
-                float force = Float.parseFloat(pressureButton.getText());
-                float area = Float.parseFloat(pressureButton.getText());
+                float force = Float.parseFloat(enterForce.getText());
+                float area = Float.parseFloat(enterArea.getText());
                 float pressure = force / area ;
                 JOptionPane.showMessageDialog(null, "pressure is " + pressure);
             }
@@ -111,10 +157,10 @@ public class PhysicsUI {
 
         potentialEnergyButton.addActionListener(e -> {
             try{
-                float mass = Float.parseFloat(potentialEnergyButton.getText());
-                float height = Float.parseFloat(potentialEnergyButton.getText());
+                float massPE = Float.parseFloat(enterMassPE.getText());
+                float heightPE = Float.parseFloat(enterHeightPE.getText());
 
-                float potentialEnergy = mass * 10 * height;
+                float potentialEnergy = massPE * 10 * heightPE;
                 JOptionPane.showMessageDialog(null, "potential Energy is " + potentialEnergy);
             }
             catch(NumberFormatException nfe){
@@ -122,39 +168,5 @@ public class PhysicsUI {
             }
         });
     }
-
-    public void drawMomentumUI(){
-                    momentumFrame = new JFrame("Momentum");
-                    mo
-    }
-
-        public void drawPotentialEnergyUI(){
-            potentialEnergyFrame = new JFrame("potential Energy");
-            potentialEnergyFrame.add(enterMass);
-            potentialEnergyFrame.add(enterHeight);
-            potentialEnergyFrame.add(calculatePotentialEnergy);
-            potentialEnergyFrame.setLayout(new FlowLayout(FlowLayout.RIGHT));
-            potentialEnergyFrame.setSize(150, 200);
-            potentialEnergyFrame.setVisible(true);
-        }
-        public void drawVelocityUI(){
-            velocityFrame = new JFrame("velocity");
-            velocityFrame.add(enterDistance);
-            velocityFrame.add(enterTime);
-            velocityFrame.add(calculateVelocity);
-            velocityFrame.setLayout(new FlowLayout(FlowLayout.RIGHT));
-            velocityFrame.setSize(900,990);
-            velocityFrame.setVisible(true);
-        }
-
-        public void drawPressureUI(){
-            pressureFrame = new JFrame("pressure");
-            pressureFrame.add(enterForce);
-            pressureFrame.add(enterArea);
-            pressureFrame.add(calculatePressure);
-            pressureFrame.setLayout(new FlowLayout(FlowLayout.RIGHT));
-            pressureFrame.setSize(900,990);
-            pressureFrame.setVisible(true);
-        }
 }
 
