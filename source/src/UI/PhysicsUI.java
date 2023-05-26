@@ -109,7 +109,7 @@ public class PhysicsUI {
                 float massKE = Float.parseFloat(enterMassKE.getText());
                 float velocityKE = Float.parseFloat(enterVelocityKE.getText());
 
-                float kineticEnergy = 0.5 * massKE * velocityKE * velocityKE;
+                float kineticEnergy = (float) (0.5 * massKE * velocityKE * velocityKE);
                 JOptionPane.showMessageDialog(null, "kinetic Energy is " + kineticEnergy);
             }
             catch(NumberFormatException nfe){
